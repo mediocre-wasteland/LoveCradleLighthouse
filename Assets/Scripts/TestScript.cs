@@ -20,16 +20,4 @@ public class TestScript : MonoBehaviour
 }
 
 
-<<<<<<< HEAD
-//I AM CHANGING YOUR CODE
 
-//THERE IS NOTHING YOU CAN DO
-
-//DEAL WITH IT
-
-//BISH
-=======
-
-
-//whats this 
->>>>>>> origin/master
