@@ -6,16 +6,14 @@ using UnityEngine;
 public class CradleController : MonoBehaviour
 {
     BoxCollider2D rectangleCollider;
+    public float endHeight;
+    public float velocity;
     IEnumerator Move()
     {
-        for (float T = 4f; T >= 0; T -= 0.1f)
+        if (transform.position.y <= endHeight)  // moves the gameObject until the specified endHeight 
         {
-            if (transform.position.y < 1f)
-            {
-                transform.Translate(0, 0.01f, 0);
-                yield return new WaitForSeconds(.2f);
-            }
-              
+            transform.Translate(0, velocity, 0); //translates along Y each update by velocity 
+            yield return new WaitForSeconds(.2f);
         }
     }
     // Use this for initialization
@@ -28,10 +26,7 @@ public class CradleController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        
-  
-            StartCoroutine("Move");
-       
+        StartCoroutine("Move");
     }
   
 }
