@@ -8,18 +8,27 @@ public class CradleController : MonoBehaviour
     BoxCollider2D rectangleCollider;
     public float endHeight;
     public float velocity;
+    float height;
+
+
     IEnumerator Move()
     {
-        if (transform.position.y <= endHeight)  // moves the gameObject until the specified endHeight 
+        height = GetComponent<BoxCollider2D>().bounds.extents.y;
+
+        if (transform.position.y < endHeight-(height*1.5))  // moves the gameObject until the specified endHeight 
         {
-            transform.Translate(0, velocity, 0); //translates along Y each update by velocity 
+            transform.Translate(0, velocity, 0);   //translates along Y each update by velocity 
             yield return new WaitForSeconds(.2f);
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, endHeight-height, 0);
+            yield return 0;
         }
     }
     // Use this for initialization
     void Start ()
     {
-        rectangleCollider = GetComponent<BoxCollider2D>();
         
     }
 	
